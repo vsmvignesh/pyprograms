@@ -1,5 +1,4 @@
 #!/usr/bin/python
-#Question_2
 import os
 import sys
 import string
