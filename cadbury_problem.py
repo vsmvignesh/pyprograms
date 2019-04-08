@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import sys
 
 def create_combination(l1,l2,b1,b2):
     tot_count=0
