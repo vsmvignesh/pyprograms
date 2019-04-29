@@ -87,7 +87,7 @@ def download(in_url, pref_type, save_path):
         sys.exit(1)
 
     #Checking if the video file exists already in the preferred path. If so, renaming the old file with '_old' extension
-    video_path = os.path.join(save_path,filename)
+    video_path = os.path.join(save_path, filename)
     if os.path.isfile(video_path):
         print("The output file already exists in the specified path. So, renaming the old file with an extension '_old'")
         os.rename(video_path, str(video_path).split('.')[0] + "_old." + str(video_path).split('.')[1])
@@ -95,9 +95,11 @@ def download(in_url, pref_type, save_path):
 
     #Moving the downloaded file to the desired path
     file_path = os.path.abspath(filename)
-
-    if shutil.move(file_path, save_path + os.path.basename(file_path)):                     #We use shutil because, we can't move fron 'C:\' using os module.
-        print("Successfully downloaded the video. It can be found at: \n {0}".format(save_path + os.path.basename(file_path)))
+    base_file_name = os.path.basename(file_path)
+    destination = os.path.join(save_path, base_file_name)
+                         
+    if shutil.move(os.path.join(os.getcwd(), base_file_name), destination):                     #We use shutil because, we can't move fron 'C:\' using os module.
+        print("Successfully downloaded the video. It can be found at: \n {0}".format(destination))
         return True
 
     else:
