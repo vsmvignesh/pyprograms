@@ -3,12 +3,12 @@ import random
 import sys
 from collections import Counter
 
-found_letters=[]
+
 
 
 def main():
     
-    global found_letters
+    found_letters=[]
     words=['something','everything','water','picture','maximize','enough','expertise','program','solution','apprehend','malfunction','research','revolution','biscuit']
     pick_word=random.choice(words)
     word_len=len(pick_word)
